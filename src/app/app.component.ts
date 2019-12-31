@@ -6,7 +6,16 @@ import { Component } from "@angular/core";
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-    constructor() {}
+    tasks = [
+        {
+            title: "task.title",
+            author: "task.author",
+            statusId: "task.statusId",
+            id: "task.id",
+            subTasks: "task.subTasks",
+            statuses: "this.state.statuses"
+        }
+    ];
 
     ngOnInit() {}
 }

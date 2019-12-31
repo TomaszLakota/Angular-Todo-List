@@ -1,5 +1,16 @@
-<p>todo-list works!</p>
+<\todo-list>
 
 <section className="TodoList">
-    <app-task-with-subtasks></app-task-with-subtasks>
+    <app-task-with-subtasks
+        *ngFor="let task of tasks"
+        [title]="task.title"
+        [author]="task.author"
+        [statusId]="task.statusId"
+        [id]="task.id"
+        [subTasks]="task.subTasks"
+        [statuses]="statuses"
+    >
+    </app-task-with-subtasks>
 </section>
+
+<\todo-list>
