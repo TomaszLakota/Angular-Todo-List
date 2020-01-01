@@ -1,11 +1,7 @@
 <section class="TodoList">
     <app-task-with-subtasks
         *ngFor="let task of tasks"
-        [title]="task.title"
-        [author]="task.author"
-        [statusId]="task.statusId"
-        [id]="task.id"
-        [subTasks]="[]"
+        [task]="task"
         [statuses]="statuses"
     >
     </app-task-with-subtasks>

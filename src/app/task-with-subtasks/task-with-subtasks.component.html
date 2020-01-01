@@ -1,30 +1,19 @@
-{{ title }}
-<app-task></app-task>
+<app-task [task]="task"></app-task>
 <div class="parent">
     <div class="sidelines">
         <div class="vertical - lines"></div>
         <div class="margin"></div>
     </div>
     <div class="children">
-        <div *ngFor="let subtask of subTasks" class="child">
+        <div *ngFor="let subtask of task.subTasks" class="child">
             <div class="lines">
                 <div class="drawLines"></div>
                 <div class="dontDrawLines"></div>
             </div>
             <div class="task">
                 <app-task-with-subtasks
-                    [title]="subtask.title"
-                    [author]="subtask.author"
-                    [statusId]="subtask.statusId"
-                    [id]="subtask.id"
-                    [subTasks]="subtask.subTasks"
+                    [task]="subtask"
                     [statuses]="statuses"
-                    [displaySubtasks]="displaySubtasks"
-                    (changeDisplay)="
-                        (subtask.subTasks && !!subtask.subTasks.subTasks
-                            ? switchDisplay
-                            : null)
-                    "
                 ></app-task-with-subtasks>
             </div>
         </div>

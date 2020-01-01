@@ -6,11 +6,7 @@ import { Component, OnInit, Input } from "@angular/core";
     styleUrls: ["./task-with-subtasks.component.scss"]
 })
 export class TaskWithSubtasksComponent implements OnInit {
-    @Input() title;
-    @Input() author;
-    @Input() statusId;
-    @Input() id;
-    @Input() subTasks;
+    @Input() task;
     @Input() statuses;
     @Input() displaySubtasks = true;
     @Input() changeDisplay;
