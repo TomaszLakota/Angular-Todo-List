@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { TaskService } from "../services/task.service";
-import { UserService } from "../services/user.service";
-import { StatusService } from "../services/status.service";
-import { Task } from "../models/task";
-import { User } from "../models/user";
-import { Status } from "../models/status";
+import { TaskService } from "../../services/task.service";
+import { UserService } from "../../services/user.service";
+import { StatusService } from "../../services/status.service";
+import { Task } from "../../models/task";
+import { User } from "../../models/user";
+import { Status } from "../../models/status";
 
 @Component({
     selector: "app-todo-list",
