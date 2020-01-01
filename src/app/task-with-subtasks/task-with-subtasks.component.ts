@@ -1,18 +1,17 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Task } from "../models/task";
+import { Status } from "../models/status";
 
 @Component({
     selector: "app-task-with-subtasks",
     templateUrl: "./task-with-subtasks.component.html",
     styleUrls: ["./task-with-subtasks.component.scss"]
 })
-export class TaskWithSubtasksComponent implements OnInit {
+export class TaskWithSubtasksComponent {
     @Input() task: Task;
-    @Input() statuses;
+    @Input() statuses: Array<Status>;
 
     displaySubtasks = true;
-
-    ngOnInit() {}
 
     switchDisplay(event) {
         this.displaySubtasks = event;
