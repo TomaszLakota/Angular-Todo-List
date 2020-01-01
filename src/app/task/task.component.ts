@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Task } from "../models/task";
 
 @Component({
     selector: "app-task",
@@ -6,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
     styleUrls: ["./task.component.scss"]
 })
 export class TaskComponent {
-    @Input() task = {};
+    @Input() task: Task;
     @Input() statuses = [];
     @Input() isParent = false;
     @Output() hideSubtasks = new EventEmitter<boolean>();

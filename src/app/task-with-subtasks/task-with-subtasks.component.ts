@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { Task } from "../models/task";
 
 @Component({
     selector: "app-task-with-subtasks",
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from "@angular/core";
     styleUrls: ["./task-with-subtasks.component.scss"]
 })
 export class TaskWithSubtasksComponent implements OnInit {
-    @Input() task;
+    @Input() task: Task;
     @Input() statuses;
 
     displaySubtasks = true;

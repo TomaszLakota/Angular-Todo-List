@@ -2,6 +2,9 @@ import { Component, OnInit, OnChanges } from "@angular/core";
 import { TaskService } from "../services/task.service";
 import { UserService } from "../services/user.service";
 import { StatusService } from "../services/status.service";
+import { Task } from "../models/task";
+import { User } from "../models/user";
+import { Status } from "../models/status";
 
 @Component({
     selector: "app-todo-list",
@@ -9,9 +12,9 @@ import { StatusService } from "../services/status.service";
     styleUrls: ["./todo-list.component.scss"]
 })
 export class TodoListComponent implements OnInit {
-    tasks;
-    users;
-    statuses;
+    tasks: Array<Task>;
+    users: Array<User>;
+    statuses: Array<Status>;
     status = {
         gotTasks: false,
         gotUsers: false,
@@ -25,6 +28,10 @@ export class TodoListComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.fetchData();
+    }
+
+    fetchData = () => {
         this.taskService.getTasks().subscribe(tasks => {
             this.tasks = tasks.data || [];
             this.status.gotTasks = true;
@@ -40,13 +47,12 @@ export class TodoListComponent implements OnInit {
         this.statusService.getStatuses().subscribe(statuses => {
             this.statuses = statuses.data || [];
         }, this.handleFetchError);
-    }
+    };
 
     fetchCallback() {
         if (this.status.gotTasks && this.status.gotUsers) {
             let tasks = this.addUsernamesToTasks(this.tasks, this.users);
             this.tasks = this.addHierarchyToTasks(tasks);
-            console.log(this.tasks);
         }
     }
 
