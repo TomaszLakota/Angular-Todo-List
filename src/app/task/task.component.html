@@ -14,17 +14,21 @@
         }}</span>
     </div>
 
-    <div class="task__column task__column--toggle">
-        <!-- {!!props.changeDisplay ? (
-                    props.displaySubtasks ? (
-                        <div class="arrows button" onClick={props.changeDisplay}>
-                            <i class="fas fa-chevron-up" aria-hidden="true"></i>
-                        </div>
-                    ) : (
-                        <div class="arrows button" onClick={props.changeDisplay}>
-                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                        </div>
-                    )
-                ) : null} -->
+    <div *ngIf="isParent" class="task__column task__column--toggle">
+        <div
+            *ngIf="!displaySubtasks"
+            class="arrows button"
+            (click)="toggleDisplay()"
+        >
+            <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        </div>
+
+        <div
+            *ngIf="displaySubtasks"
+            class="arrows button"
+            (click)="toggleDisplay()"
+        >
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </div>
     </div>
 </div>

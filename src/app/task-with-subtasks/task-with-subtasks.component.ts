@@ -8,15 +8,12 @@ import { Component, OnInit, Input } from "@angular/core";
 export class TaskWithSubtasksComponent implements OnInit {
     @Input() task;
     @Input() statuses;
-    @Input() displaySubtasks = true;
-    @Input() changeDisplay;
 
-    display = true;
+    displaySubtasks = true;
 
     ngOnInit() {}
 
-    switchDisplay() {
-        this.display = !this.display;
-        //TODO: idk if this works as intended; probably not, coz there is already displaySubtasks
+    switchDisplay(event) {
+        this.displaySubtasks = event;
     }
 }

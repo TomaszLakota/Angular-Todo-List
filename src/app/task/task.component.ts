@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
     selector: "app-task",
@@ -8,6 +8,15 @@ import { Component, OnInit, Input } from "@angular/core";
 export class TaskComponent {
     @Input() task = {};
     @Input() statuses = [];
+    @Input() isParent = false;
+    @Output() hideSubtasks = new EventEmitter<boolean>();
+
+    displaySubtasks = true;
+
+    toggleDisplay() {
+        this.displaySubtasks = !this.displaySubtasks;
+        this.hideSubtasks.emit(this.displaySubtasks);
+    }
 
     getStatus = (id, statuses = []) => {
         const status = statuses.find(status => {

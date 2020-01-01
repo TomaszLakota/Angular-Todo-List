@@ -1,5 +1,10 @@
-<app-task [task]="task" [statuses]="statuses"></app-task>
-<div class="parent">
+<app-task
+    [task]="task"
+    [statuses]="statuses"
+    [isParent]="task.subTasks && task.subTasks.length"
+    (hideSubtasks)="switchDisplay($event)"
+></app-task>
+<div *ngIf="displaySubtasks" class="parent">
     <div class="sidelines">
         <div class="vertical-lines"></div>
         <div class="margin"></div>
