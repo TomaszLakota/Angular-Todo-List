@@ -45,7 +45,7 @@
     width: 100%;
 }
 
-::ng-deep .child .task__container::after {
+:host ::ng-deep .child .task__container::after {
     content: "";
     width: $task-left-margin - 5px;
     border-top: 2px dashed #ccc;
