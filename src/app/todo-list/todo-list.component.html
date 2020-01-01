@@ -1,4 +1,4 @@
-<section class="TodoList">
+<section *ngIf="tasks && !status.error" class="TodoList">
     <app-task-with-subtasks
         *ngFor="let task of tasks"
         [task]="task"
@@ -6,3 +6,9 @@
     >
     </app-task-with-subtasks>
 </section>
+<p *ngIf="!tasks && !status.error">
+    fetching data from server
+</p>
+<p *ngIf="status.error">
+    failed to get tasks from server
+</p>

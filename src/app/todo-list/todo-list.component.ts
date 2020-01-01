@@ -1,5 +1,4 @@
 import { Component, OnInit, OnChanges } from "@angular/core";
-import { Input } from "@angular/core";
 import { TaskService } from "../services/task.service";
 import { UserService } from "../services/user.service";
 import { StatusService } from "../services/status.service";
@@ -10,12 +9,13 @@ import { StatusService } from "../services/status.service";
     styleUrls: ["./todo-list.component.scss"]
 })
 export class TodoListComponent implements OnInit {
-    tasks = [];
-    users = [];
-    statuses = [];
+    tasks;
+    users;
+    statuses;
     status = {
         gotTasks: false,
-        gotUsers: false
+        gotUsers: false,
+        error: false
     };
 
     constructor(
@@ -29,17 +29,17 @@ export class TodoListComponent implements OnInit {
             this.tasks = tasks.data || [];
             this.status.gotTasks = true;
             this.fetchCallback();
-        });
+        }, this.handleFetchError);
 
         this.userService.getUsers().subscribe(users => {
             this.users = users.data || [];
             this.status.gotUsers = true;
             this.fetchCallback();
-        });
+        }, this.handleFetchError);
 
         this.statusService.getStatuses().subscribe(statuses => {
             this.statuses = statuses.data || [];
-        });
+        }, this.handleFetchError);
     }
 
     fetchCallback() {
@@ -49,6 +49,11 @@ export class TodoListComponent implements OnInit {
             console.log(this.tasks);
         }
     }
+
+    handleFetchError = err => {
+        console.log(err);
+        this.status.error = true;
+    };
 
     addUsernamesToTasks(tasks, users) {
         if (!tasks) {
