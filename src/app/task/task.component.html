@@ -1,0 +1,30 @@
+<div ngClass="task__container">
+    <div ngClass="task__column task__column--author">
+        <span ngClass="task__label">author</span>
+        <span ngClass="task__text task__text--author">{{ task.author }}</span>
+    </div>
+    <div ngClass="task__column task__column--title">
+        <span ngClass="task__label">title</span>
+        <span ngClass="task__text task__text--title">{{ task.title }}</span>
+    </div>
+    <div ngClass="task__column task__column--status">
+        <span ngClass="task__label">status</span>
+        <span ngClass="task__text task__text--status">{{
+            getStatus(task.statusId, task.statuses)
+        }}</span>
+    </div>
+
+    <div ngClass="task__column task__column--toggle">
+        <!-- {!!props.changeDisplay ? (
+                    props.displaySubtasks ? (
+                        <div ngClass="arrows button" onClick={props.changeDisplay}>
+                            <i ngClass="fas fa-chevron-up" aria-hidden="true"></i>
+                        </div>
+                    ) : (
+                        <div ngClass="arrows button" onClick={props.changeDisplay}>
+                            <i ngClass="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                    )
+                ) : null} -->
+    </div>
+</div>

@@ -1,0 +1,55 @@
+@import "../../variables.scss";
+
+.task {
+    &__container {
+        display: flex;
+        box-shadow: 0px 4px 13px 0px #ccc;
+        border-radius: 4px;
+        width: 100%;
+        margin-bottom: $task-bottom-margin;
+        padding: 35px;
+        font-size: 14px;
+        position: relative;
+    }
+
+    &__column {
+        margin-left: 2%;
+        margin-right: 2%;
+        flex-grow: 1;
+
+        &--author {
+            flex-basis: 200px;
+            margin-left: 0;
+        }
+
+        &--title {
+            flex-basis: 600px;
+        }
+
+        &--status {
+            flex-basis: 300px;
+        }
+
+        &--toggle {
+            flex-shrink: 11;
+            flex-basis: 450px;
+            text-align: right;
+        }
+    }
+
+    &__label {
+        display: block;
+        text-transform: uppercase;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        color: #aaa;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    &__text {
+        display: block;
+        color: #333;
+        font-weight: 500;
+    }
+}
