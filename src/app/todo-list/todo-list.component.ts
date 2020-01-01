@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Input } from "@angular/core";
+import { TaskService } from "../services/task.service";
 
 @Component({
     selector: "app-todo-list",
@@ -8,9 +9,13 @@ import { Input } from "@angular/core";
 })
 export class TodoListComponent implements OnInit {
     @Input() tasks;
-    constructor() {}
+    constructor(private taskService: TaskService) {}
 
     ngOnInit() {
-        console.log("tasks");
+        this.taskService.getTasks().subscribe(tasks => {
+            this.tasks = tasks.data || [];
+            console.log(this.tasks);
+        });
+        console.log(this.tasks);
     }
 }
