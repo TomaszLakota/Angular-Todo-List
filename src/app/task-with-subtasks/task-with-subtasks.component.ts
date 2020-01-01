@@ -17,9 +17,7 @@ export class TaskWithSubtasksComponent implements OnInit {
 
     display = true;
 
-    ngOnInit() {
-        console.log(this.title);
-    }
+    ngOnInit() {}
 
     switchDisplay() {
         this.display = !this.display;

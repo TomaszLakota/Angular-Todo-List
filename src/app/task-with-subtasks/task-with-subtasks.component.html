@@ -1,17 +1,17 @@
 {{ title }}
 <app-task></app-task>
-<div [ngClass]="parent">
-    <div [ngClass]="sidelines">
-        <div [ngClass]="vertical - lines"></div>
-        <div [ngClass]="margin"></div>
+<div class="parent">
+    <div class="sidelines">
+        <div class="vertical - lines"></div>
+        <div class="margin"></div>
     </div>
-    <div [ngClass]="children">
-        <div *ngFor="let subtask of subTasks" [ngClass]="child">
-            <div [ngClass]="lines">
-                <div [ngClass]="drawLines"></div>
-                <div [ngClass]="dontDrawLines"></div>
+    <div class="children">
+        <div *ngFor="let subtask of subTasks" class="child">
+            <div class="lines">
+                <div class="drawLines"></div>
+                <div class="dontDrawLines"></div>
             </div>
-            <div [ngClass]="task">
+            <div class="task">
                 <app-task-with-subtasks
                     [title]="subtask.title"
                     [author]="subtask.author"
