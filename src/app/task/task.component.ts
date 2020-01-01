@@ -5,11 +5,9 @@ import { Component, OnInit, Input } from "@angular/core";
     templateUrl: "./task.component.html",
     styleUrls: ["./task.component.scss"]
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent {
     @Input() task = {};
-    constructor() {}
-
-    ngOnInit() {}
+    @Input() statuses = [];
 
     getStatus = (id, statuses = []) => {
         const status = statuses.find(status => {
