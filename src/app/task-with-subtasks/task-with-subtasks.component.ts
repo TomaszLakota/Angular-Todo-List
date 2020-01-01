@@ -12,6 +12,15 @@ export class TaskWithSubtasksComponent implements OnInit {
     @Input() id;
     @Input() subTasks;
     @Input() statuses;
+    @Input() displaySubtasks = true;
+    @Input() changeDisplay;
+
+    display = true;
 
     ngOnInit() {}
+
+    switchDisplay() {
+        this.display = !this.display;
+        //TODO: idk if this works as intended; probably not, coz there is already displaySubtasks
+    }
 }

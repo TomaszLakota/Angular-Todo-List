@@ -1,3 +1,32 @@
-<\task-with-subtasks works>
-{{ title }}
-<\task-with-subtasks works>
+<\task-with-subtasks works> "" title "" <\task-with-subtasks works>
+
+<div [ngClass]="parent">
+    <div [ngClass]="sidelines">
+        <div [ngClass]="vertical - lines"></div>
+        <div [ngClass]="margin"></div>
+    </div>
+    <div [ngClass]="children">
+        <div *ngFor="let subtask of subTasks" [ngClass]="child">
+            <div [ngClass]="lines">
+                <div [ngClass]="drawLines"></div>
+                <div [ngClass]="dontDrawLines"></div>
+            </div>
+            <div [ngClass]="task">
+                <app-task-with-subtasks
+                    [title]="subtask.title"
+                    [author]="subtask.author"
+                    [statusId]="subtask.statusId"
+                    [id]="subtask.id"
+                    [subTasks]="subtask.subTasks"
+                    [statuses]="statuses"
+                    [displaySubtasks]="displaySubtasks"
+                    (changeDisplay)="
+                        (subtask.subTasks && !!subtask.subTasks.subTasks
+                            ? switchDisplay
+                            : null)
+                    "
+                ></app-task-with-subtasks>
+            </div>
+        </div>
+    </div>
+</div>
