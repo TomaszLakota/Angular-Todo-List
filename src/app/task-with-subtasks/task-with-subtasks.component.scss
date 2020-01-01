@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+
+.parent {
+    display: flex;
+}
+
+.sidelines {
+    display: flex;
+    flex-direction: column;
+    width: 2px;
+    overflow: visible;
+}
+
+.vertical-lines {
+    flex-grow: 1;
+    width: 2px;
+    margin-top: -$task-bottom-margin;
+    overflow: visible;
+
+    border-left: 2px dashed rgb(216, 216, 216);
+}
+
+.lines {
+    display: block;
+    width: $task-left-margin;
+}
+
+.margin {
+    flex-grow: 11;
+    max-height: $task-bottom-margin + $line-offset;
+}
+
+.children {
+    width: 100%;
+    height: fit-content;
+}
+
+.child {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.task {
+    width: 100%;
+}
+
+::ng-deep .child .task__container::after {
+    content: "";
+    width: $task-left-margin - 5px;
+    border-top: 2px dashed #ccc;
+    position: absolute;
+    left: -$task-left-margin + 5px;
+    top: 50%;
+    z-index: 5;
+}
